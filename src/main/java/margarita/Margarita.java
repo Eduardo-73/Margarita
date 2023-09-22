@@ -15,10 +15,12 @@ public class Margarita {
     public static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        do {
-
-        } while (contarMargaritas());
+        
+        do {            
+             margEvaluar();
+             
+        } while (false);
+       
     }
 
     private static int dado() {
@@ -32,7 +34,8 @@ public class Margarita {
         try {
         System.out.println("Elige el número de margariatas (1-10)");
         num = teclado.nextInt();
-        } catch (Exception e) {
+        System.out.println("Número de margarita " + num);
+        } catch () {
             System.out.println("Tienes que elegir un número que se "
                     + "encuentre entre los parametros ");
         }
@@ -40,12 +43,12 @@ public class Margarita {
         return num;
     }
     
-    private static boolean meQuiereNoMeQuiere (){
-        System.out.println("Dame un número de hojas: ");
-        int numhojas = teclado.nextInt();
-        
-        if ()
-    }
+//    private static boolean meQuiereNoMeQuiere (){
+//        System.out.println("Dame un número de hojas: ");
+//        int numhojas = teclado.nextInt();
+//        
+//        if ()
+//    }
 
     private static int contarMargaritas() {
 
