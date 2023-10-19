@@ -17,7 +17,28 @@ public class Margarita {
 
     public static void main(String[] args) {
         String jugar = "";
+        int numMargaritas, contador = 1, numrandom, numHojas;
         do {
+            numMargaritas = preguntaMargaritas();
+            for (int i = 0; i < numMargaritas; i++) {
+                numHojas = numeroHojas(contador);
+                numrandom = tiradaDado();
+                if (numHojas % 2 == 0) {
+                    if (!meQuiere(numrandom)) {
+                        System.out.println("El resultado final es me quiere");
+                    } else {
+                        System.out.println("El resultado final es no me quiere");
+                    }
+                } else {
+                    if (!meQuiere(numrandom)) {
+                        System.out.println("El resultado final es no me quiere");
+                    } else {
+                        System.out.println("El resultado final es me quiere");
+                    }
+                }
+                contador++;
+            }
+            teclado.nextLine();
             System.out.println("Quieres repetir?");
             jugar = teclado.nextLine();
         } while (jugar.equalsIgnoreCase("Si"));
@@ -42,19 +63,28 @@ public class Margarita {
         int num;
         do {
             num = ran.nextInt(1, 6);
-            if (num % 2 == 0) {
-                System.out.println("La tirada fue " + num + " me quiere ");
-            } else {
-                System.out.println("La tirada fue " + num + "no me quiere");
+            if (num == 3) {
+                System.out.println("A salido 3, número de la mala suerte");
+                System.out.println("Vuelves a tirar");
             }
         } while (num == 3);
         return num;
     }
-    
-    private static int numeroHojas(){
-        int contador = 1;
-        System.out.println("Cuaántas hojas tiene la margarita Nº?" + contador);
+
+    private static int numeroHojas(int contador) {
+        System.out.println("Cuántas hojas tiene la margarita Nº" + contador + "?");
         int numeroHojas = teclado.nextInt();
-        
+        return numeroHojas;
+    }
+
+    private static boolean meQuiere(int num) {
+        if (num % 2 == 0) {
+            System.out.println("La tirada fue " + num
+                    + " y empieza con me quiere ");
+        } else {
+            System.out.println("La tirada fue " + num
+                    + " y empieza con no me quiere");
+        }
+        return true;
     }
 }
